@@ -1,0 +1,53 @@
+* {
+    color: white;
+    font-size: xx-large;
+}
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin: 0;
+}
+table {
+    margin-top: 50px;
+    width: 80%;
+    border: 12px groove orange;
+}
+table td, th {
+    border: 2px solid orange;
+    padding: 10px;
+}
+table th {
+    background-color: orange;
+}
+td {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
+
+#sub:hover {
+    background-color: orange;
+    background-image: linear-gradient(to right,yellow, rgb(5, 5, 108),rgb(5, 5, 108), yellow);
+    
+}
+.cor:hover {
+    background-color: orange;
+    background-image: linear-gradient(to right, white,rgb(4, 4, 119),yellow, yellow,rgb(4, 4, 119), white);
+    
+}
+.hei:hover {
+    background-color: orange;
+    background-image: linear-gradient(to right,red, green, green,black);
+    
+}
+.bud:hover {
+    background-image: linear-gradient(to right,white,black,red,red,black, white);  
+}
+.stel:hover {
+    background-image: linear-gradient(to right, white,green,green,white);  
+}

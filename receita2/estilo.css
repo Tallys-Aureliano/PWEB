@@ -1,0 +1,33 @@
+* {
+    background-color: black;
+}
+
+p.verso {
+    color: blue;
+}
+p.mote {
+    color: red;
+}
+a {
+    display: flex;
+    gap: 10px;
+}
+a:hover {
+    color: black;
+}
+a:visited {
+    color: goldenrod;
+}
+a:active {
+    color: red;
+}
+a:visited {
+    text-decoration: none;
+}
+a img {
+    border-radius: 50%;
+    width: 80px;
+}
+div img {
+    border-radius: 50%;
+}
