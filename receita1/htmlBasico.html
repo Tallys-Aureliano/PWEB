@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+  <title>HtmlBasico</title>
+</head>
+<nav>
+  <a href="/receita1/page1.html">Conecte com o <b>Facebook</b></a>
+  <a href="/receita1/page2.html">Conecte com o <b>Google</b></a>
+</nav>
+<body>
+  <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg"
+    widtd="200" />
+  <h1>Uma trova...</h1>
+  <p>
+    Eu só preciso de hoje<br />
+    Pra viver e ser feliz<br />
+    O passado já me foge<br />
+    E o futuro nada diz!<br />
+  </p>
+  <br />
+  <p>Autor: Francisco Borges</p>
+  <div class="tables">
+    <table id="myTable">
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Marca</th>
+      </tr>
+  
+      <tr>
+        <td>SubZero</td>
+        <td>100</td>
+        <td>Antartica</td>
+      </tr>
+      
+      <tr>
+        <td>budweiser</td>
+        <td>100</td>
+        <td>budw</td>
+      </tr>
+      
+      <tr>
+        <td>Skol beats</td>
+        <td>100</td>
+        <td>Skol</td>
+      </tr>
+    </table>
+
+    <table id="myTable">
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Marca</th>
+      </tr>
+  
+      <tr>
+        <td>Slova</td>
+        <td>100</td>
+        <td>Antartica</td>
+      </tr>
+      
+      <tr>
+        <td>DeCuba</td>
+        <td>100</td>
+        <td>budw</td>
+      </tr>
+      
+      <tr>
+        <td>Skyy</td>
+        <td>100</td>
+        <td>Skol</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+<style>
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  /* background-color: orange; */
+  border-bottom: 7px groove orange;
+  margin-bottom: 15px;
+}
+a {
+  display: flex;
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+nav b {
+  padding-left: 5px;
+}
+body img {
+  width: 50%;
+}
+h1, p, table {
+  color: white;
+}
+#myTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+#myTable td {
+  border: 1px solid white;
+  padding: 15px;
+}
+#myTable th{
+  background-color: orange;
+  padding: 15px;
+}
+#myTable tr:hover {background-color: white; color: black;}
+
+.tables {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+</style>
+</html>
