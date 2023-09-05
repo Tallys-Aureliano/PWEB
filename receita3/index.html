@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <div id="meu-amor"><p>Cervejas</p></div>
+    <button id="botaoCarregar">Carregando cervejas...</button>
+    <div id="gelada"></div>
+</body>
+
+<script>
+    let condition = true
+    function carregarDiv() {
+        let div = document.getElementById("gelada")
+        if (condition) {
+            div.innerHTML = `<h1>Guinness</h1>`
+        } else {
+            div.textContent = ''
+        }
+        condition = !condition
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", carregarDiv) 
+</script>
+<style>
+.estilo {
+    
+}
+</style>
+</html>
