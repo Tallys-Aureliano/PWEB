@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Index</title>
 </head>
 <body>
     <div id="meu-amor"><p>Cervejas</p></div>
     <button id="botaoCarregar">Carregando cervejas...</button>
-    <div id="gelada"></div>
+    <div class="fade-in" id="gelada"></div>
 </body>
 
 <script>
@@ -17,9 +18,10 @@
     function carregarDiv() {
         let div = document.getElementById("gelada")
         if (condition) {
+            div.className = "fade-in"
             div.innerHTML = `<h1>Guinness</h1>`
         } else {
-            div.textContent = ''
+            div.className = "fade-out"
         }
         condition = !condition
     }
