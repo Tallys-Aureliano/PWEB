@@ -1,12 +1,3 @@
-/* .fade-effect {
-    opacity: 0;
-    transition: opacity 1s;
-  }
-  
-  .fade-effect:hover {
-    opacity: 1;
-  } */
-
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -28,8 +19,24 @@
       opacity: 0;
     }
   }
+/* * {
+  background-color: black;
+} */
+button {
+  background-color: white;
+}
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
   
-  .fade-out {
-    animation: fadeOut 2s forwards;
-  }
-  
+.cervejas {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  color: white;
+}
