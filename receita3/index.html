@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Receita 3</title>
 </head>
 <body>
-    <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <div id="meu-amor"><p>Cervejas</p></div>
+    <button id="botaoCarregar">Carregando cervejas...</button>
+    <div id="gelada"></div>
 </body>
+
 <script>
-    let cervejas = ["Guiness", "Desperados", "Becks"]
-    function transformar(item){
-    return `<table>
-                <tr>
-                <th>nome</th>
-                </tr>
-                <tr>
-                <td>${item}</td>
-                </tr>
-            </table>`
-    }
-    function carregarDiv(){
-        let div = document.getElementById("meu amor")
-        let cervejasHtml = cervejas.map(transformar) 
-         div.innerHTML = `${cervejasHtml.join("\n")}`
+    let condition = true
+    function carregarDiv() {
+        let div = document.getElementById("gelada")
+        if (condition) {
+            div.innerHTML = `<h1>Guinness</h1>`
+            div.className = "fade-in"
+        } else {
+            div.className = "fade-out"
+        }
+        condition = !condition
     }
     let botao = document.getElementById("botaoCarregar")
-    botao.addEventListener("click", carregarDiv)                 
- </script>
+    botao.addEventListener("click", carregarDiv) 
+</script>
 </html>
