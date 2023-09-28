@@ -6,25 +6,43 @@
 </head>
 <body>
     <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <table>
+        <tr>
+            <th>Nomes</th>
+            <th><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></th>
+            <th><button id="botaoEmbaralhar">Embaralhar cervejas</button></th>
+        </tr>
+        <tr id="cervejas"></tr>
+    </table>
 </body>
 <script>
     let cervejas = ["Guiness", "Desperados", "Becks"]
     function transformar(item){
-    return `<table>
-                <tr>
-                <th>nome</th>
-                </tr>
-                <tr>
+    return `<tr>
                 <td>${item}</td>
-                </tr>
-            </table>`
+            </tr>`
     }
     function carregarDiv(){
-        let div = document.getElementById("meu amor")
+        let div = document.getElementById("cervejas")
         let cervejasHtml = cervejas.map(transformar) 
-         div.innerHTML = `${cervejasHtml.join("\n")}`
+        div.innerHTML = `${cervejasHtml.join("\n")}`
     }
+    function ordenarCervejas() {
+            cervejas.sort();
+            carregarDiv();
+        }
+
+    function embaralharCervejas() {
+            cervejas.sort(() => Math.random() - 0.5);
+            carregarDiv();
+        }
     let botao = document.getElementById("botaoCarregar")
-    botao.addEventListener("click", carregarDiv)                 
+    botao.addEventListener("click", carregarDiv)
+
+    let botaoOrdenar = document.getElementById("botaoOrdenar");
+        botaoOrdenar.addEventListener("click", ordenarCervejas);
+
+    let botaoEmbaralhar = document.getElementById("botaoEmbaralhar");
+        botaoEmbaralhar.addEventListener("click", embaralharCervejas);
  </script>
 </html>

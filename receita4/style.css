@@ -1,42 +1,20 @@
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .fade-in {
-    animation: fadeIn 2s forwards;
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-/* * {
+* {
   background-color: black;
-} */
-button {
-  background-color: white;
-}
-.fade-out {
-  animation: fadeOut 2s forwards;
-}
-  
-.cervejas {
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  width: 100px;
-  height: 100px;
   color: white;
+}
+table {
+  border: 2px solid black;
+}
+button {
+  background-color: purple;
+}
+th {
+  border: 1px solid blue;
+  text-align: center;
+  padding: 15px;
+}
+td {
+  border: 1px solid yellow;
+  text-align: center;
+  padding: 15px;
 }
