@@ -1,0 +1,22 @@
+* {
+    background-color: black;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: yellow;
+    margin: 10px;
+    cursor: pointer;
+}
+table {
+    border: 2px solid orange;
+    text-align: center;
+}
+th {
+    border-bottom: 1px solid orange;
+    border-right: 1px solid orange;
+}
+td {
+    border-right: 1px solid orange;
+}

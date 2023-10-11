@@ -7,6 +7,47 @@
     <title>Receita 5</title>
 </head>
 <body>
-    
+    <div>
+        <table>
+            <tr>
+                <th>
+                    <a id="botaoCarregar">Carregar Frutas</a></div>
+                </th>
+                <th>
+                    <a id="botaoOrdenar">Ordenar Frutas</a>
+                </th>
+                <th>
+                    <a id="botaoEmbaralhar">Embaralhar Frutas</a>
+                </th>
+            </tr>
+            <tr id="frutas"></tr>
+        </table>
 </body>
+
+<script>
+    frutas = ["Banana", "Abacaxi", "Cajarana"]
+    const carregarDiv = aux => {
+        let div = document.getElementById("frutas")
+        let frutasHtml = aux.map(item => `<td>${item}</td>`)
+        div.innerHTML = `${frutasHtml.join("\n")}`
+    }
+    const ordenarfrutas = aux => {
+            aux.sort();
+            carregarDiv(aux);
+        }
+
+    const embaralharfrutas = (aux) => {
+            aux.sort(() => Math.random() - 0.5);
+            carregarDiv(aux);
+        }
+
+    let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarDiv(frutas))
+    
+    let botaoOrdenar = document.getElementById("botaoOrdenar");
+        botaoOrdenar.addEventListener("click", () => ordenarfrutas(frutas));
+    
+    let botaoEmbaralhar = document.getElementById("botaoEmbaralhar");
+        botaoEmbaralhar.addEventListener("click", () => embaralharfrutas(frutas));
+</script>
 </html>
