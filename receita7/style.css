@@ -1,7 +1,21 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: white;
     background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+button {
+    /* text-decoration: none; */
+    background-color: red;
+    margin: 20px;
+    cursor: pointer;
+}
+table {
+    border: 10px inset red;
+    width: 80%;
+}
+th, td {
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+    padding: 5px;
 }
