@@ -9,34 +9,14 @@
 </head>
 
 <body>
-    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
-    <table id ="tableCervejas"></table>
+    <div><button id="botaoCarregar">Carregando coisas...</button></div>
+    <table id ="tablecoisas"></table>
 </body>
 
 <script>
-    let cervejas = [
-        {
-            name: "Guiness",
-            alcohol: "10%",
-            style: "Stout",
-            ibu: "40"
-        },
-        {
-            name: "Desperados",
-            alcohol: "6%",
-            style: "IPA",
-            ibu: "60"
-        },
-        {
-            name: "Becks",
-            alcohol: "5%",
-            style: "Stout",
-            ibu: "40"
-        }
-
-    ]
-    //cs é um array de cervejas
-    const carregarDiv = (cs, id = "tableCervejas", rowName = ["names", "alcohol", "style", "ibu"]) => {
+    let coisas = []
+    //cs é um array de coisas
+    const carregarDiv = (cs, id = "tablecoisas", rowName = Object.keys(cs[0])) => {
         const tag = document.getElementById(id)
         const theadHtml = `<thead>
             <tr>
@@ -48,17 +28,20 @@
         cs.map(item =>
                     `<tbody>
                         <tr>
-                            <td>${item[Object.keys(item)[0]]}</td>
-                            <td>${item[Object.keys(item)[1]]}</td>
-                            <td>${item[Object.keys(item)[2]]}</td>
-                            <td>${item[Object.keys(item)[3]]}</td>
+                            ${rowName.map(header => `<td>${item[header]}</td>`).join('')}
                         </tr>
                     </tbody>`)
-        console.log(tbody)
         tag.innerHTML = `${theadHtml + tbody.join("\n")}`
     }
+
+    async function carregarcoisas(coisa, teste) {
+            let res = await fetch(`https://random-data-api.com/api/${teste}/random_coffee?size=5`)
+            coisas = await res.json()
+            carregarDiv(coisas)
+        }
+
     let botao = document.getElementById("botaoCarregar")
-    botao.addEventListener("click", () => carregarDiv(cervejas))
+    botao.addEventListener("click", () => carregarcoisas(coisas, "coffee"))
 </script>
 
 </html>
