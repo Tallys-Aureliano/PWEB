@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao JSX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="botaoCarregar">Carregar Frutas</button>
+    <div id="title"></div>
+    <div id="tables"></div>
+</body>
+
+<script src="../libs/react.js"></script>
+<script src="../libs/react-dom.js"></script>
+<script src="../libs/babel.js"></script>
+<script>
+        frutas = {
+        "fruta1":["Banana", "Vitamina"],
+        "fruta2":["Morango", "Vitamina"],
+        "fruta3":["Abacaxi", "Suco"],
+        "fruta4":["Limao", "Cachaça"],
+        "fruta5":["Laranja", "Medicinal"],
+        "fruta6":["Manga", "Com Leite"],
+        "fruta7":["Melancia", "No Alomoço"],
+    }
+</script>
+<script type="text/babel">
+    const TabelaBebidas = () => {
+        return (
+            <div id="tables">
+                <table id="tabela" border="1">
+                    <thead>
+                        <tr><th>Nome</th><th>Uso</th></tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+    const Cabecalho = () => {
+        return (
+            <h1 id="title">Minha Tabela</h1>
+        )
+    }
+    
+    const carregarFrutas = (frutas) => {
+        let div = document.getElementsByTagName("tbody")[0]
+        console.log("entrou")
+        let frutasHtml = Object.keys(frutas).map(item => {
+            return `<tr><td>${frutas[item][0]}</td><td>${frutas[item][1]}</td></tr>`
+        })
+        div.innerHTML = `${frutasHtml.join("\n")}`
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", () => carregarFrutas(frutas))
+
+    ReactDOM.render(
+        <Cabecalho />,
+        document.getElementById("title"))
+    
+    ReactDOM.render(
+        <TabelaBebidas />,
+        document.getElementById("tables"))
+
+</script>
+
+</html>
