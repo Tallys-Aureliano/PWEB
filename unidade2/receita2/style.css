@@ -1,0 +1,41 @@
+* {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+button {
+    /* text-decoration: none; */
+    background-color: red;
+    margin: 20px;
+    cursor: pointer;
+}
+table {
+    border: 10px inset red;
+    width: 80%;
+}
+th, td {
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+    padding: 5px;
+}
+.carousel {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
