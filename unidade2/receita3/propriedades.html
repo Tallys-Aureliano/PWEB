@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReceitaReact - 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script src="../libs/react.js"></script>
+<script src="../libs/react-dom.js"></script>
+<script src="../libs/babel.js"></script>
+<script type="text/babel">
+    const TabelaBebidas = ({ titulo, tabela: [cabecalho, corpo] }) => {
+        return (
+            <div>
+                <h1>{titulo}</h1>
+                <table id="tabela" border="1">
+                    <thead>
+                        <tr><th>{cabecalho[0]}</th><th>{cabecalho[1]}</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>{corpo[0]}</td><td>{corpo[1]}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
+    const valoresCabecalhos = ["Nome", "Marca"]
+    const valoresCorpo = ["Velho Barreiro", "Vinicula Caico"]
+
+    ReactDOM.render(
+        <TabelaBebidas titulo="Minha Tabela" tabela={[valoresCabecalhos, valoresCorpo]} />
+        ,
+        document.getElementById("app"))
+
+</script>
+
+</html>
