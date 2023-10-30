@@ -1,3 +1,4 @@
+.vscode
 # Created by https://www.toptal.com/developers/gitignore/api/react,nextjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,nextjs
 
@@ -10,9 +11,9 @@
 /coverage
 
 # next.js
-/.next/
+/.next
 /out/
-
+unidade2/next0/.next
 # production
 /build
 
