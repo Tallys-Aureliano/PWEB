@@ -1,7 +1,7 @@
 .vscode
+.env
 # Created by https://www.toptal.com/developers/gitignore/api/react,nextjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,nextjs
-
 ### NextJS ###
 # dependencies
 /node_modules
