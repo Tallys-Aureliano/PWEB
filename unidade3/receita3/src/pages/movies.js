@@ -2,66 +2,36 @@ import React, { useState } from 'react';
 
 export default function Movies({ data }) {
     const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearch = async (e) => {
-        e.preventDefault();
-        // Adicione lógica para buscar dados usando o novo termo de pesquisa (searchTerm)
-        e.preventDefault();
-        const apiKey = process.env.API_KEY;
-        const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchTerm}`;
-
-        try {
-            const res = await fetch(url);
-            const newData = await res.json();
-            setData(newData);
-        } catch (error) {
-            console.log(error);
-        }
-    };
     return (
         <div>
-            <form onSubmit={handleSearch}>
+            <form>
                 <input
                     type="text"
                     name="search"
                     value={searchTerm}
-                    onChange={(e) => {
-                        setSearchTerm(e.target.value)
-                    }
-                }
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button type="submit">Buscar</button>
             </form>
             <div>
-                <table>
+                <table border="2" cellPadding="10">
                     <thead>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Poster</th>
+                        <tr>
+                            <th>Título</th>
+                            <th>Ano</th>
+                            <th>Foto</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        {data.Search.map((m) =>
-                            <tr>
-                                <td>{m.Title}</td>
-                                <td>{m.Year}</td>
-                                <td><img src={m.Poster} style={{width: 100}}></img></td>
-                            </tr>
-                    )}
+                        {dataMovies(data)}
                     </tbody>
                 </table>
-            </div>  
+            </div>
         </div>
     )
 }
 export async function getServerSideProps(context) {
     const searchTerm = context.query.search || 'batman'; // Obtém o termo de pesquisa da query ou usa 'batman' como padrão
-    if (!process.env.API_KEY) {
-        return {
-            props: {
-                data: []
-            }
-        }
-    }
     const res = await fetch(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${searchTerm}`)
     try {
         const data = await res.json()
@@ -72,5 +42,22 @@ export async function getServerSideProps(context) {
         }
     } catch (error) {
         console.log(error)
+    }
+}
+export function dataMovies(data) {
+    if (data.Search) {
+        return data.Search.map((m) =>
+            <tr>
+                <td>{m.Title}</td>
+                <td>{m.Year}</td>
+                <td><img src={m.Poster} style={{ width: 100 }}></img></td>
+            </tr>
+        )
+    } else {
+        return (
+            <tr>
+                <td>Carregando...</td>
+            </tr>
+        )
     }
 }
