@@ -1,4 +1,4 @@
-export function home() {
+export default function home() {
     return (
         <div>
             <h2>Componente Home</h2>

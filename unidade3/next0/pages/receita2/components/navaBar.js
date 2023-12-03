@@ -1,4 +1,4 @@
-export function navaBar(link1, link2) {
+export default function navaBar(link1, link2) {
     return (
         <><nav>
             <h1>Componente Nav Bar</h1>
