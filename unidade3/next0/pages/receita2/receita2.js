@@ -1,25 +1,14 @@
-import { home } from "./components/home";
-import { login } from "./components/login";
-import { navaBar } from "./components/navaBar";
+import Home from "./components/home";
+import Login from "./components/login";
+import NavBar from "./components/navBar";
 export default function index() {
     return (
-        <><section>
-            {navaBar("home","login")}
+        <div>
+            <NavBar link1="home" link2="login"/>
             <div>
-            {home()}
-            {login()}
+            <Home />
+            <Login />
             </div>
-        </section>
-        <style jsx>
-            {`
-            * {
-                margin: 0px;
-                padding: 0px;
-            }
-            div {
-                display: flex;
-            }
-            `}
-        </style></>
+        </div>
     )
 }

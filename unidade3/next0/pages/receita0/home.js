@@ -1,4 +1,5 @@
-export default function home() {
+import React from 'react'
+export default function Home() {
     return (
         <div>
             <h2>Componente Home</h2>
