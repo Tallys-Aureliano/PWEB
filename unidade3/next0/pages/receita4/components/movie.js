@@ -5,7 +5,7 @@ import { fetcher } from './movies2';
 export default function Movie() {
     const router = useRouter();
     const { id } = router.query;
-    const { data, error } = useSWR(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`, fetcher)
+    const { data, error } = useSWR(`http://www.omdbapi.com/?apikey=4b8b5472&i=${id}`, fetcher)
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
     try {

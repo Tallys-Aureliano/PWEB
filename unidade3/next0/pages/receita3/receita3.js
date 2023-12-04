@@ -32,7 +32,7 @@ export default function Movies({ data }) {
 }
 export async function getServerSideProps(context) {
     const searchTerm = context.query.search || 'batman'; // Obtém o termo de pesquisa da query ou usa 'batman' como padrão
-    const res = await fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&s=${searchTerm}`)
+    const res = await fetch(`http://www.omdbapi.com/?apikey=4b8b5472&s=${searchTerm}`)
     try {
         const data = await res.json()
         return {
