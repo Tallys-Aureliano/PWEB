@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image'
 
 export default function Movies({ data }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -47,16 +48,18 @@ export async function getServerSideProps(context) {
 export function dataMovies(data) {
     if (data.Search) {
         return data.Search.map((m) =>
-            <tr>
+            <tr key={m.imdbID}>
                 <td>{m.Title}</td>
                 <td>{m.Year}</td>
-                <td><img src={m.Poster} style={{ width: 100 }}></img></td>
+                <td>
+                    <Image src={m.Poster} width={100} height={100} alt={m.Title} />
+                </td>
             </tr>
         )
     } else {
         return (
             <tr>
-                <td>Carregando...</td>
+                <td>Error...</td>
             </tr>
         )
     }
