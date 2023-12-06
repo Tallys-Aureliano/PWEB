@@ -1,8 +1,10 @@
+"use client";
 import React, { useState } from 'react';
 import Image from 'next/image'
 
-export default function Movies({ data }) {
+export default function Movies() {
     const [searchTerm, setSearchTerm] = useState('');
+    const data = getMovies("batman")
     return (
         <div>
             <form>
@@ -24,30 +26,28 @@ export default function Movies({ data }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {dataMovies(data)}
+                        {
+                            dataMovies(data)
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     )
 }
-export async function getServerSideProps(context) {
-    const searchTerm = context.query.search || 'batman'; // Obtém o termo de pesquisa da query ou usa 'batman' como padrão
-    const res = await fetch(`http://www.omdbapi.com/?apikey=4b8b5472&s=${searchTerm}`)
+// Nao sei como substituir o getServerSideProps
+export async function getMovies(searchTerm) {
     try {
+        const res = await fetch(`http://www.omdbapi.com/?apikey=4b8b5472&s=${searchTerm}`)
         const data = await res.json()
-        return {
-            props: {
-                data
-            }
-        }
+        return data
     } catch (error) {
         console.log(error)
     }
 }
 export function dataMovies(data) {
-    if (data.Search) {
-        return data.Search.map((m) =>
+    try {
+        return data.map((m) =>
             <tr key={m.imdbID}>
                 <td>{m.Title}</td>
                 <td>{m.Year}</td>
@@ -56,10 +56,10 @@ export function dataMovies(data) {
                 </td>
             </tr>
         )
-    } else {
+    } catch (error) {   
         return (
             <tr>
-                <td>Error...</td>
+                <td>Algo deu errado</td>
             </tr>
         )
     }
